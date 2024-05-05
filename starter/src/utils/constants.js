@@ -1,0 +1,2 @@
+export const CREDENTIALS_KEY = 'CREDENTIALS_KEY';
+export const USER_SIGNED_IN_KEY = 'USER_SIGNED_IN_KEY';
