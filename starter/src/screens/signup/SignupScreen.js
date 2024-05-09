@@ -4,9 +4,9 @@ import logo from '../../icons/book.png';
 import { AuthStatus, useAuth } from '../../hooks/useAuth';
 import { useEffect } from 'react';
 
-const SignupScreen = ({}) => {
+const SignupScreen = () => {
 	const navigate = useNavigate();
-	const [value, status, signup, reset] = useAuth();
+	const [, status, signup, reset] = useAuth();
 	useEffect(() => {
 		if (status === AuthStatus.SIGN_UP_SUCCESS) {
 			navigate(-1); // Go back signin screen
@@ -28,7 +28,7 @@ const SignupScreen = ({}) => {
 			<div className='signin-title'>
 				<h1>Sign up</h1>
 			</div>
-			<img src={logo} className='logo' />
+			<img src={logo} className='logo' alt='logo' />
 			<SignupForm onSignup={handleSignup} />
 		</div>
 	);

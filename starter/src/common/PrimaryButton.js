@@ -9,6 +9,5 @@ export const PrimaryButton = ({ onClick, title }) => {
 };
 
 PrimaryButton.propTypes = {
-	onClick: PropType.func.isRequired,
 	title: PropType.string.isRequired,
 };

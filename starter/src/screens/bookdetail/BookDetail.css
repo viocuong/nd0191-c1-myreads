@@ -1,0 +1,45 @@
+/* book detail page */
+
+.book-detail {
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+	align-items: stretch;
+	justify-content: center;
+}
+
+.book-detail-header {
+	background: #2e7c31;
+	padding: 10px 0;
+	text-align: center;
+}
+
+.book-detail-header h1 {
+	color: white;
+	font-weight: 400;
+	margin: 0;
+}
+
+.book-detail-title {
+	color: black;
+	font-weight: 400;
+	font-size: 2em;
+	align-self: center;
+}
+
+.book-detail-thumbnail {
+	align-self: center;
+}
+
+.book-detail-description {
+	color: rgb(56, 56, 56);
+	font-weight: 300;
+	font-size: 1.5em;
+	margin: 0 50px;
+	align-self: center;
+}
+
+.book-detail-author {
+	align-self: center;
+	font-size: 1.5em;
+}

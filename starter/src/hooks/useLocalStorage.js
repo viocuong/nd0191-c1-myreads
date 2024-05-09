@@ -11,6 +11,12 @@ export const useLocalStorage = (key) => {
 
 	const saveValue = (value) => {
 		localStorage.setItem(key, JSON.stringify(value));
+		setValue(value);
+	};
+
+	const removeItem = () => {
+		localStorage.removeItem(key);
+		setValue(undefined);
 	};
 
 	useEffect(() => {
@@ -18,7 +24,7 @@ export const useLocalStorage = (key) => {
 		setValue(JSON.parse(storagedValue));
 	}, [key]);
 
-	return [value, saveValue];
+	return [value, saveValue, removeItem];
 };
 
 useLocalStorage.propTypes = {

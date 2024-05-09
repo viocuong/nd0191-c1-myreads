@@ -6,9 +6,11 @@ import SignupScreen from './screens/signup/SignupScreen';
 import SigninScreen from './screens/signin/SigninScreen';
 import { RouterProvider } from 'react-router-dom';
 import SearchScreen from './screens/search/SearchScreen';
-import App from './App';
+import './App.css';
 import { ProtectedRoute } from './common/ProtectedRoute';
 import MainScreen from './screens/main/MainScreen';
+import { BooksProvider } from './BooksProvider';
+import { BookDetailScreen } from './screens/bookdetail/BookDetailScreen';
 const router = createBrowserRouter([
 	{
 		path: '/signup',
@@ -28,12 +30,26 @@ const router = createBrowserRouter([
 	},
 	{
 		path: '/search',
-		element: <SearchScreen />,
+		element: (
+			<ProtectedRoute>
+				<SearchScreen />
+			</ProtectedRoute>
+		),
+	},
+	{
+		path: '/book-detail/:bookId',
+		element: (
+			<ProtectedRoute>
+				<BookDetailScreen />
+			</ProtectedRoute>
+		),
 	},
 ]);
 ReactDOM.render(
 	<React.StrictMode>
-		<RouterProvider router={router} />
+		<BooksProvider>
+			<RouterProvider router={router} />
+		</BooksProvider>
 	</React.StrictMode>,
 	document.getElementById('root'),
 );

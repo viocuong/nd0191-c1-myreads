@@ -1,13 +1,20 @@
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import './Signin.css';
 import logo from '../../icons/book.png';
 import { SigninForm } from './SigninForm';
 import { AuthStatus, useAuth } from '../../hooks/useAuth';
 import { useEffect } from 'react';
+import { useBooksDispatch } from '../../BooksProvider';
 
-const SigninScreen = ({}) => {
+const SigninScreen = () => {
 	const navigate = useNavigate();
+	const booksDispatch = useBooksDispatch();
 	const [, status, , signin, reset] = useAuth();
+	const location = useLocation();
+	useEffect(() => {
+		// Reset old books state when signin screen forcused
+		booksDispatch({ type: 'reset' });
+	}, [location]);
 	useEffect(() => {
 		if (status === AuthStatus.SIGN_IN_SUCCESS) {
 			navigate('/');
@@ -28,7 +35,7 @@ const SigninScreen = ({}) => {
 			<div className='signin-title'>
 				<h1>Sign in</h1>
 			</div>
-			<img src={logo} className='logo' />
+			<img alt='logo' src={logo} className='logo' />
 			<SigninForm onSignin={handleSignup} />
 		</div>
 	);

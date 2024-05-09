@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { PrimaryButton } from '../../common/PrimaryButton';
 import PropType from 'prop-types';
 import { Link } from 'react-router-dom';
-import { SecondaryButton } from '../../common/SecondaryButton';
 
 const initialSigninState = {
 	username: '',
